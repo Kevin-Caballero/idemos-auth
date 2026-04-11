@@ -18,7 +18,7 @@ export class UsersService {
     return this.repo.findOne({ where: { id } });
   }
 
-  create(data: Pick<User, 'email' | 'passwordHash'>): Promise<User> {
+  create(data: Pick<User, 'name' | 'email' | 'passwordHash'>): Promise<User> {
     const user = this.repo.create(data);
     return this.repo.save(user);
   }
