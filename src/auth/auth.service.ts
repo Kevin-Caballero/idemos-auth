@@ -9,11 +9,23 @@ import { RegisterDto } from './dto/register.dto';
 import { JwtPayload, JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 
+/**
+ * Par de tokens JWT emitidos tras una autenticación exitosa.
+ * - accessToken: token de corta duración (15 min por defecto) para autorizar peticiones.
+ * - refreshToken: token de larga duración (7 días por defecto) para renovar el access token.
+ */
 export interface TokenPair {
   accessToken: string;
   refreshToken: string;
 }
 
+/**
+ * Servicio principal de autenticación del microservicio auth.
+ * Gestiona el registro de nuevos usuarios, el inicio de sesión y la renovación de tokens.
+ * Emite siempre pares de tokens (access + refresh) para que el cliente pueda autorrenovarse
+ * sin volver a pedir credenciales.
+ * Las contraseñas se almacenan con bcrypt (factor 12).
+ */
 @Injectable()
 export class AuthService {
   private readonly logger = new Logger(AuthService.name);

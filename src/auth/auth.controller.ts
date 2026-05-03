@@ -5,6 +5,11 @@ import { LoginDto } from './dto/login.dto';
 import { RefreshDto } from './dto/refresh.dto';
 import { RegisterDto } from './dto/register.dto';
 
+/**
+ * Controlador RPC del microservicio auth.
+ * Expone las operaciones de autenticación mediante message patterns de TCP
+ * para ser consumidas únicamente desde el gateway, nunca directamente por el cliente.
+ */
 @Controller()
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
