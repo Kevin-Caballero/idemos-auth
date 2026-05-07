@@ -18,7 +18,7 @@ Servicio de autenticación de iDemos. Gestiona el registro, login y validación 
 | `RABBITMQ_URL`            | `amqp://localhost:5672` | URL de conexión a RabbitMQ                    |
 | `NODE_ENV`                | —                       | `development` activa `synchronize` en TypeORM |
 
-## Required versions
+## Requisitos
 
 | Tool / Package          | Version  |
 | ----------------------- | -------- |
@@ -35,7 +35,7 @@ Servicio de autenticación de iDemos. Gestiona el registro, login y validación 
 | PostgreSQL (`pg`)       | ^8.13.3  |
 | RxJS                    | ^7.8.1   |
 
-> Node.js 20+ is required for native `.env` file loading via `--env-file`.
+> Se requiere Node.js 20+ para la carga nativa de archivos `.env` mediante `--env-file`.
 
 ## Scripts
 
